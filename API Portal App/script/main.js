@@ -1,4 +1,4 @@
-var app = angular.module('apiportalApp',['ngRoute']);
+var app = angular.module('apiportalApp',['ngRoute','ui']);
 
 app.config(['$routeProvider', function ($routeProvider) {
   $routeProvider
@@ -52,9 +52,47 @@ app.controller('RegistrationController', ['$scope','$http','$filter', function($
 
 }]);
 
+app.controller('PricingModelController', ['$scope','$http','$filter', function($scope, $http, $filter) {
+  $scope.formData = {};
+  $scope.getApiById = function(ApiIDSelected) {
+    $scope.ApiIDSelected = ApiIDSelected
+        console.log("API ID Selected");
+        $http.get('http://10.30.117.148/ChargebackPublish/api/apimasters/'+ ApiIDSelected).success(function(data){
+            $scope.api = data;
+                console.log("ApiID Selected" + data);
+        });
+    };
+    $scope.MonetizeprocessForm = function(ApiIDSelected) {
+       $http({
+          method  : 'PUT',
+          url     : 'http://10.30.117.148/ChargebackPublish/api/apimasters/'+ $scope.ApiIDSelected,
+          data    : {'ApiID': $scope.api.ApiID, 'Name': $scope.api.Name,'Owner': $scope.api.Owner, 'PublishedDate': $scope.api.PublishedDate,'IsActive': $scope.api.IsActive,'ApiUrl': $scope.api.ApiUrl,'ApiKey': $scope.api.ApiKey,'DevelopmentCost': $scope.api.DevelopmentCost,'OperationalCost':  $scope.api.OperationalCost,'IsMonetized': false },
+          headers : { 'Content-Type': 'application/json' }  // set the headers so angular passing info as form data (not request payload)
+         })
+          .success(function(data) {
+            console.log("Monetized API:" + data);
+        });
+    };
+}]);
+
 app.controller('ApiListController', function ($scope, $http) {
     $http.get('http://10.30.117.148/ChargebackPublish/api/apimasters').success(function(data) {
         $scope.Apis = data;
+            console.log("APi List:" + data);
+    }); 
+});
+
+app.controller('AppListController', function ($scope,$http){
+    $http.get('http://10.30.117.148/ChargebackPublish/api/appmasters').success(function(data) {
+        $scope.Apps = data;
             console.log(data);
     }); 
 });
+
+app.controller('PricingListController', function ($scope,$http){
+    $http.get('http://10.30.117.148/ChargebackPublish/api/apiplans').success(function(data) {
+        $scope.plans = data;
+            console.log("Pricing Models:" + data);
+    });
+});
+

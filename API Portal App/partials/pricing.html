@@ -1,0 +1,128 @@
+<div class="bs-docs-section" ng-controller="PricingModelController">
+  <div class="row">
+    <div class="col-lg-12">
+      <div class="page-header">
+        <h1 id="forms">Api Pricing</h1>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+   <div class="col-lg-6" >
+      <div class="well bs-component">
+        <form class="form-horizontal" ng-submit="MonetizeprocessForm(ApiIDSelected)">
+          <fieldset>
+            <legend>Configure API Pricing Model</legend>
+            <div class="form-group">              
+              <label for="select" class="col-lg-2 control-label">Choose API</label>
+              <div class="col-lg-10" ng-controller="ApiListController" >
+                <select class="form-control" id="ApiSelect" ng-model="ApiIDSelected" ng-change="getApiById(ApiIDSelected)" ng-options="api.ApiID as api.Name for api in Apis" >
+                  <option></option>                  
+                </select>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="select" class="col-lg-2 control-label">Planning To Monitize</label>
+              <div class="col-lg-10">
+                <div class="radio" ng-init="radioMonitize=0">
+                  <label>
+                    <input type="radio" name="optionsRadios" id="optionsRadios1" value="1" ng-model="radioMonitize">
+                    Yes
+                  </label>
+                </div>
+                <div class="radio">
+                  <label>
+                    <input type="radio" name="optionsRadios" id="optionsRadios2" value="0" ng-model="radioMonitize">
+                    No
+                  </label>
+                </div>
+                <div class="col-lg-10 col-lg-offset-2" ng-hide="radioMonitize==1" >
+                  <button type="submit" class="btn btn-primary">Submit</button>
+                </div>
+              </div>
+            </div>
+          </fieldset>
+        </form>
+      </div>
+   </div>
+   <div class="col-lg-6">
+      <div class="well bs-component">
+        <form class="form-horizontal" ng-submit="AppprocessForm()">
+          <fieldset>
+            <legend>Configure a New Plan</legend>
+            <div class="form-group">
+              <label for="inputPlanName" class="col-lg-2 control-label">Plan Name</label>
+              <div class="col-lg-10">
+                <input type="text" class="form-control" id="PlanName" placeholder="PlanName" ng-model="formData.PlanName">
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="inputTrialPeriod" class="col-lg-2 control-label">Trial Period(days)</label>
+              <div class="col-lg-10">
+                <input type="text" class="form-control" id="TrialPeriod" placeholder="TrialPeriod" ng-model="formData.TrialPeriod">
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="inputCostPerHit" class="col-lg-2 control-label">Cost Per Hit($)</label>
+              <div class="col-lg-10">
+                <input type="text" class="form-control" id="CostPerHit" placeholder="CostPerHit" ng-model="formData.CostPerHit">
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="inputDataCost" class="col-lg-2 control-label">Data Cost/Gb($)</label>
+              <div class="col-lg-10">
+                <input type="text" class="form-control" id="DataCost" placeholder="DataCost" ng-model="formData.DataCost">
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="inputHitLimit" class="col-lg-2 control-label">Hit Limit/month</label>
+              <div class="col-lg-10">
+                <input type="text" class="form-control" id="HitLimit" placeholder="HitLimit" ng-model="formData.HitLimit">
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="inputDataLimit" class="col-lg-2 control-label">Data Limit GB/month</label>
+              <div class="col-lg-10">
+                <input type="text" class="form-control" id="DataLimit" placeholder="DataLimit" ng-model="formData.DataLimit">
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="inputRateLimit" class="col-lg-2 control-label">Rate Limit/sec</label>
+              <div class="col-lg-10">
+                <input type="text" class="form-control" id="RateLimit" placeholder="RateLimit" ng-model="formData.RateLimit">
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="inputSetupFee" class="col-lg-2 control-label">Setup Fee(One Time)</label>
+              <div class="col-lg-10">
+                <input type="text" class="form-control" id="SetupFee" placeholder="SetupFee" ng-model="formData.SetupFee">
+              </div>
+            </div>
+            <div class="form-group">
+              <div class="col-lg-10 col-lg-offset-2">
+                <button class="btn btn-default">Cancel</button>
+                <button type="submit" class="btn btn-primary">Submit</button>
+              </div>
+            </div>
+          </fieldset>
+        </form>
+      </div>
+   </div>
+  </div>
+  <div class="row" >
+    <div ng-hide="radioMonitize==0" ng-controller="PricingListController">
+      <table class="table table-bordered table-hover">
+        <tbody>
+          <tr><th>PlanID</th><th>Name</th><th>ApiCostPerHit</th><th>DataCostPerGB</th><th>MaxHitsAllowed</th><th>MaxGBLimit</th></tr>
+          <tr ng-repeat="plan in plans">
+             <td>{{plan.PlanID}}</td>
+             <td>{{plan.Name}}</td>
+             <td>{{plan.planCostPerHit}}</td>
+             <td>{{plan.DataCostPerGB}}</td>
+             <td>{{plan.MaxHitsAllowed}}</td>
+             <td>{{plan.MaxGBLimit}}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

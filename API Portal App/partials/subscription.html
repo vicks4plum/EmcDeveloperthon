@@ -1,0 +1,43 @@
+<div class="bs-docs-section">
+  <div class="row">
+    <div class="col-lg-12">
+      <div class="page-header">
+        <h1 id="forms">Api Pricing</h1>
+      </div>
+    </div>
+  </div>
+
+  <div class="row" >
+   <div class="col-lg-6" >
+      <div class="well bs-component">
+        <form class="form-horizontal" ng-submit="SubscriptionprocessForm()">
+          <fieldset>
+            <legend>Configure API Pricing Model</legend>
+            <div class="form-group">
+              <label for="select" class="col-lg-2 control-label">Choose API</label>
+                <div class="col-lg-10" ng-controller="ApiListController" >
+                  <select class="form-control" id="Api">
+                    <option ng-repeat="api in Apis">{{api.Name}}</option>
+                  </select>
+                </div>
+                <div class="form-group">
+              <label for="select" class="col-lg-2 control-label">Choose App</label>
+                <div class="col-lg-10" ng-controller="AppListController">
+                  <select class="form-control" id="Api">
+                    <option ng-repeat="app in Apps">{{app.Name}}</option></select>
+                </div>
+            </div>
+            <div class="form-group">
+              <label for="select" class="col-lg-2 control-label">Pricing Model</label>
+                <div class="col-lg-10" ng-controller="PricingListController">
+                  <select class="form-control" id="PricingModel" ng-model="PricingModel" ng-options="plan.PricingModel for plan in plans | unique:'PricingModel'" ng-change="getPlansByModel()"></select>
+                </div>
+            </div>
+            </div>
+          </fieldset>
+        </form>
+      </div>
+    </div>
+  </div>
+
+
