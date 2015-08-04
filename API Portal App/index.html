@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" >
 <head>
     <meta charset="utf-8">
     <title>API Chargeback Invoicing</title>
@@ -15,11 +15,10 @@
     <script src="script/main.js"></script>
 </head>
 <body ng-app="apiportalApp">
-	{{ 8 / 2 }}
     <div class="emc-header-outer"> <!--  snap-content" -->
         <div class="emc-header">
             <div class="emc-left">
-              <img src="img/emc-logo.svg" class="emc-logo" alt="EMC Logo"/>
+              <img src="img/emc-logo.svg" class="emc-logo" alt="EMC Logo" href="/"/>
               <div class="emc-appid">
                   <span class="emc-appid-low">API</span>
                   <span class="emc-appid-high">Chargeback Invoicing</span>
@@ -28,6 +27,7 @@
             <div class="emc-right">
                 <ul class="emc-menu">
                     <li><a href="#/registration">Registration</a>
+                    <li><a href="#/apis">API List</a>
                     <li><a href="#/apiPlans">API Plans</a>
                     <li><a href="#/analytics">Analytics</a>
                     <li><a href="#/invoicing">Invoicing</a>
@@ -37,7 +37,7 @@
                     <input type="text" placeholder="Enter your search term..."/>
                     <span class="icon"></span>
                 </div>
-                <div class="emc-icons">
+                <div class="emc-icons" ng-click=>
                     <span class="icon-hamburger"></span>
                 </div>
             </div>
@@ -59,7 +59,7 @@
     <script src="script/bootstrap.js"></script>
     <script src="script/bootstrap-sprockets.js"></script>
     <script src="script/snap.js"></script>
-    <script src="script/js/scripts.min.js"></script>
+    <script src="script/scripts.min.js"></script>
     <script type="text/javascript">
       $(function() {
         $('[data-toggle="tooltip"]').tooltip();

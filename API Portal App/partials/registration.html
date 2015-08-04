@@ -1,80 +1,80 @@
-<div class="bs-docs-section">
-        <div class="row">
-          <div class="col-lg-12">
-            <div class="page-header">
-              <h1 id="forms">Registration</h1>
-            </div>
-          </div>
-        </div>
-
-        <div class="row">
-          <div class="col-lg-6">
-            <div class="well bs-component">
-              <form class="form-horizontal">
-                <fieldset>
-                  <legend>Register the API/Service</legend>
-                  <div class="form-group">
-                    <label for="inputApiUrl" class="col-lg-2 control-label">Api Url</label>
-                    <div class="col-lg-10">
-                      <input type="text" class="form-control" id="inputApiUrl" placeholder="ApiUrl">
-                    </div>
-                  </div>
-                  <div class="form-group">
-                    <label for="inputApiName" class="col-lg-2 control-label">Api Name</label>
-                    <div class="col-lg-10">
-                      <input type="text" class="form-control" id="inputApiName" placeholder="ApiName">
-                    </div>
-                  </div>
-                  <div class="form-group">
-                    <label for="inputApiOwner" class="col-lg-2 control-label">Api Owner</label>
-                    <div class="col-lg-10">
-                      <input type="text" class="form-control" id="inputApiOwner" placeholder="ApiOwner">
-                    </div>
-                  </div>
-                 
-                  <div class="form-group">
-                    <div class="col-lg-10 col-lg-offset-2">
-                      <button class="btn btn-default">Cancel</button>
-                      <button type="submit" class="btn btn-primary">Submit</button>
-                    </div>
-                  </div>
-                </fieldset>
-              </form>
-            </div>
-          </div>
-          <div class="col-lg-6">
-            <div class="well bs-component">
-              <form class="form-horizontal">
-                <fieldset>
-                  <legend>Register the Application</legend>
-                  <div class="form-group">
-                    <label for="inputAppUrl" class="col-lg-2 control-label">Application Url</label>
-                    <div class="col-lg-10">
-                      <input type="text" class="form-control" id="inputAppUrl" placeholder="AppUrl">
-                    </div>
-                  </div>
-                  <div class="form-group">
-                    <label for="inputAppName" class="col-lg-2 control-label">Application Name</label>
-                    <div class="col-lg-10">
-                      <input type="text" class="form-control" id="inputAppName" placeholder="AppName">
-                    </div>
-                  </div>
-                  <div class="form-group">
-                    <label for="inputAppOwner" class="col-lg-2 control-label">Application Owner</label>
-                    <div class="col-lg-10">
-                      <input type="text" class="form-control" id="inputAppOwner" placeholder="AppOwner">
-                    </div>
-                  </div>
-                 
-                  <div class="form-group">
-                    <div class="col-lg-10 col-lg-offset-2">
-                      <button class="btn btn-default">Cancel</button>
-                      <button type="submit" class="btn btn-primary">Submit</button>
-                    </div>
-                  </div>
-                </fieldset>
-              </form>
-            </div>
-          </div>
-        </div>
+<div class="bs-docs-section" ng-controller="RegistrationController">
+  <div class="row">
+    <div class="col-lg-12">
+      <div class="page-header">
+        <h1 id="forms">Registration</h1>
       </div>
+    </div>
+  </div>
+
+  <div class="row" >
+   <div class="col-lg-6" >
+      <div class="well bs-component">
+        <form class="form-horizontal" ng-submit="ApiprocessForm()">
+          <fieldset>
+            <legend>Register the API/Service</legend>
+            <div class="form-group">
+              <label for="inputApiUrl" class="col-lg-2 control-label">Url</label>
+              <div class="col-lg-10">
+                <input type="text" class="form-control" id="inputApiUrl" placeholder="ApiUrl"  ng-model="formData.ApiUrl" >
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="inputApiName" class="col-lg-2 control-label">Name</label>
+              <div class="col-lg-10">
+                <input type="text" class="form-control" id="inputApiName" placeholder="ApiName" ng-model="formData.ApiName">
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="inputApiOwner" class="col-lg-2 control-label">Owner</label>
+              <div class="col-lg-10">
+                <input type="text" class="form-control" id="inputApiOwner" placeholder="ApiOwner" ng-model="formData.ApiOwner">
+              </div>
+            </div>
+           
+            <div class="form-group">
+              <div class="col-lg-10 col-lg-offset-2">
+                <button class="btn btn-default">Cancel</button>
+                <button type="submit" class="btn btn-primary">Submit</button>
+              </div>
+            </div>
+          </fieldset>
+        </form>
+      </div>
+    </div>
+    <div class="col-lg-6">
+      <div class="well bs-component">
+        <form class="form-horizontal" ng-submit="AppprocessForm()">
+          <fieldset>
+            <legend>Register the Application</legend>
+            <div class="form-group">
+              <label for="inputAppUrl" class="col-lg-2 control-label">Url</label>
+              <div class="col-lg-10">
+                <input type="text" class="form-control" id="inputAppUrl" placeholder="AppUrl" ng-model="formData.AppUrl">
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="inputAppName" class="col-lg-2 control-label">Name</label>
+              <div class="col-lg-10">
+                <input type="text" class="form-control" id="inputAppName" placeholder="AppName" ng-model="formData.AppName">
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="inputAppOwner" class="col-lg-2 control-label">Owner</label>
+              <div class="col-lg-10">
+                <input type="text" class="form-control" id="inputAppOwner" placeholder="AppOwner" ng-model="formData.AppOwner">
+              </div>
+            </div>
+           
+            <div class="form-group">
+              <div class="col-lg-10 col-lg-offset-2">
+                <button class="btn btn-default">Cancel</button>
+                <button type="submit" class="btn btn-primary">Submit</button>
+              </div>
+            </div>
+          </fieldset>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

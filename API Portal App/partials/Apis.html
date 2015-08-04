@@ -1,0 +1,21 @@
+<div class="bs-docs-section" ng-controller="RegistrationController">
+  <div class="row">
+    <div class="col-lg-12">
+      <div class="page-header">
+        <h1 id="forms">API Registered</h1>
+      </div>
+    </div>
+  </div>
+<div ng-controller="ApiListController">
+<table class="table table-bordered table-hover">
+  <tbody>
+    <tr><th>Api ID</th><th>Api Key</th><th>Api Url</th><th>Api Name</th><th>Api Owner</th></tr>
+    <tr ng-repeat="api in Apis">
+       <td>{{api.ApiID}}</td>
+       <td>{{api.ApiKey}}</td>
+       <td>{{api.ApiUrl}}</td>
+       <td>{{api.Name}}</td>
+       <td>{{api.Owner}}</td>
+    </tr>
+  </tbody>
+</table>
