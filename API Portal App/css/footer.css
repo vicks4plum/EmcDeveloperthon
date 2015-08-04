@@ -1,0 +1,70 @@
+footer .wrapper {
+    margin: 0 auto;
+    text-align: left;
+    width: 980px;
+}
+
+footer {
+    clear: both;
+    overflow: hidden;
+    /*padding: 34px 0 60px 0; */
+    position: relative;
+    z-index: 981;
+    background-color: #4e5052;
+     
+}
+footer section {
+    float: left;
+    padding-right: 27px;
+    width: 228px;
+    color: #FFFFFF;
+}
+
+footer section.col4{
+    width: 215px;
+}
+
+footer section.last {
+    padding-right: 0px;
+}
+footer section:last-child {
+    padding-right: 0;
+}
+footer section h4 {
+    font-family: 'Helvetica Neue',arial,sans-serif;
+    font-size: 15px;
+    font-weight: normal;
+    padding-bottom: 28px;
+    text-transform: uppercase;
+    color: #FFFFFF;
+}
+footer .col1 div, footer .col2 div {
+    width: 220px;
+
+}
+footer .col3 div, footer .col4 div {
+    width: 220px;
+
+}
+#globalfooter .logo {
+    background: url("../img/emc-logo.svg") no-repeat scroll 0 0 transparent;
+    display: block;
+    float: left;
+    height: 31px;
+    text-indent: -999em;
+    width: 97px;
+}
+#globalfooter div.copyright {
+    padding-top: 5px;
+    text-align: center;
+}
+#globalfooter div, #globalfooter a {
+    color: #999999;
+}
+#globalfooter a {
+    text-transform: uppercase;
+}
+#globalfooter p {
+    margin-top: 5px;
+    margin-right: 0;
+}
