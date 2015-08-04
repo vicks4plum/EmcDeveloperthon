@@ -1,0 +1,13 @@
+@font-face {
+    font-weight: 400;
+    font-style: normal;
+    font-family: 'MetaNormalRegular';
+    src: url(meta-normal.eot);
+    src: url(meta-normal.eot) format("embedded-opentype"), 
+    url(meta-normal.woff) format("woff"), 
+    url(meta-normal.ttf) format("truetype"), 
+    url(meta-normal.svg#MetaNormalRegular) format("svg");
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+}
+
